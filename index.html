@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assessment Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin-top: 0px;
+      background-color: #ffe;
+      
+    }
+    .page-break {
+  page-break-after: always; /* or page-break-before: always; */
+  break-after: page;        /* modern alternative */
+}
+
+
+    .fpage{
+        /* height: 28.7cm; 
+         background-color: rgb(153, 219, 244); */
+    }
+     .login-container, .form-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      padding-bottom: 0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+
+    /* .login-container {
+      background-color: #f3f6ff; */
+    } 
+    /* .form-container{
+      display: none;
+    }  */
+
+    .header-banner {
+      background : linear-gradient(to bottom, #002147 100%);
+      text-align: center;
+      padding: 0px 10px 5px; 
+      position: relative;
+    }
+    .header-banner img.logo {
+      position: absolute;
+      top: 15px;
+      left: 2px;
+      width: 130px;
+    }
+
+    .header-banner img.profile-img {
+      position: absolute;
+      top: 8px;
+      bottom: 2px;
+      right: 8px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%; 
+      object-fit: c;
+    }
+    .header-banner h1 {
+      font-size: 52px;
+      color: #ff5f5f;
+      margin: 0;
+      
+      
+    }
+    .header-banner h2 {
+      font-size: 19.43px;
+      color: #6495ed;
+      margin: 0;
+    }
+    .header-banner p {
+      font-size: 10.7px;
+      margin: 4px 0;
+      color: #ffffff;
+    }
+    .doctor-row {
+      display: flex;
+      justify-content: space-around;
+      background: linear-gradient(to bottom, #c8b374, #ffe);
+      color: #0b0908;
+      font-weight: bold;
+      text-align: center;
+    }
+    .doctor-row div {
+      flex: 1;
+    }
+    .doctor-row p{
+        font-size: 18px;
+        font-weight: 900;
+        margin: 0px;
+        color: #e82c18;
+    }
+    
+    
+    .header, .footer {
+      text-align: center;
+      font-weight: bold;
+    }
+    .contact, .doctors {
+      text-align: center;
+      margin: 6px 0;
+    }
+    .section {
+      margin-top: 5px;
+    }
+    .parent{
+        display: flex;
+        justify-content: space-between;
+    }
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: px;
+      box-sizing: border-box;
+    }
+    .form-row label {
+      width: 150px;
+      
+      
+    }
+    .form-row input, .form-row textarea {
+      flex: 1;
+      padding: 6px;
+      font-size: 14px;
+    }
+    .form-group-title {
+      font-weight: bold;
+      font-size: 26px;
+       margin: 20px  10px; 
+       padding-left: -10px;
+    }
+input,option{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+select{
+  height:30px ;
+  font-size: 15px;
+}
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    td {
+      border: 1px solid #333;
+      padding: 5px;
+    }
+    .print-button {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    @media print {
+  .print-button,
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator{
+    display: none !important;
+    -webkit-appearance: none;
+  }
+ 
+textarea{
+   background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    resize: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+}
+  input,
+  select,
+  textarea{
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+  }
+}
+    .last{
+        display: flex;
+        justify-content: space-evenly;
+        height: 50px;
+        width: 100%;
+        background-color: rgb(7, 241, 230); 
+        
+    }
+    .l{
+        margin: auto;
+        
+    }
+    /* From Uiverse.io by adamgiebl */ 
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+button:hover span {
+  transform: translateX(5em);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+
+
+ <!-- form page-->
+  
+  <div class="form-container" id="formPage">
+    <div class="page-section">
+    <div class="header-banner">
+        <img src="logo.png" alt="Logo" class="logo">
+        
+        <img src="header.jpg" alt="Doctor Image" class="profile-img">
+        <h1>HEALING HAND</h1>
+        <h2>CHILD NEURO DEVELOPMENTAL CENTRE</h2>
+        <p>House No-25, Vivekanand Marg, Near CIMAGE COLLEGE, Boring Road, Patna-01</p>
+        <p>Email: healinghand06@gmail.com | <b>Ph.: 7991125629</b></p>
+      </div>
+      
+      <div class="doctor-row">
+        <div>
+          <p>Dr. Santosh Kumar</p>
+          BPT, MPT(Neuro)<br>
+          S.V. Nirtar<br>
+          C.N.D.T, C.S.I
+        </div>
+        <div>
+            <p>Dr. Yashwant Singh</p>
+          BPT, MPT(Neuro)<br>
+          S.V. Nirtar
+        </div>
+        <div>
+            <p>Dr. Ashish Singh</p>
+          BOT, MOT<br>
+          S.V. Nirtar
+        </div>
+      </div>
+
+<div class="form-row" style="margin-top: 10px;"><label>Date of Assessment:</label><input type="datetime-local" style="max-width: 185px;"></div>
+<h2 style="text-align: center;margin-top: 9px;">OCCUPATIONAL THERAPY ASSESSMENT</h2>
+
+<div class="section">
+    
+    <div class="form-row"><label>Name:</label><input type="text"></div>
+    <div class="form-row"><label>Sex:</label>
+        <select>
+            <option value="" style="display: none;"></option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Transgender</option>
+            </select>
+    </div>
+    <div class="form-row"><label>DOB:</label><input type="date" style="max-width: 125px;"></div>
+    <div class="form-row"><label>Age:</label> <select>
+        <option value=""></option>
+        <option value="1">1 Year</option>
+        <option value="2">2 Year</option>
+        <option value="3">3 Year</option>
+        <option value="4">4 Year</option>
+        <option value="5">5 Year</option>
+        <option value="6">6 Year</option>
+        <option value="7">7 Year</option>
+        <option value="8">8 Year</option>
+        <option value="9">9 Year</option>
+        <option value="10">10 Year</option>
+        <option value="11">11 Year</option>
+        <option value="12">12 Year</option>
+        <option value="13">13 Year</option>
+        <option value="14">14 Year</option>
+        <option value="15">15 Year</option>
+        <option value="16">16 Year</option>
+        <option value="17">17 Year</option>
+        <option value="18">18 Year</option>
+        <option value="19">19 Year</option>
+        <option value="20">20 Year</option>
+      </select>
+    <select style="margin-left: 3px;"> 
+    <option value=""></option>
+    <option value="1">1 Month</option>
+      <option value="2">2 Months</option>
+      <option value="3">3 Months</option>
+      <option value="4">4 Months</option>
+      <option value="5">5 Months</option>
+      <option value="6">6 Months</option>
+      <option value="7">7 Months</option>
+      <option value="8">8 Months</option>
+      <option value="9">9 Months</option>
+      <option value="10">10 Months</option>
+      <option value="11">11 Months</option>
+      <option value="12">12 Months</option>
+</select></div>
+    <div class="form-row"><label>Address:</label><input type="text"></div>
+    <div class="form-row"><label>Contact No:</label><input type="text"></div>
+    <div class="form-row"><label>Chief Complaint:</label><textarea id="autoTextarea" rows="3" placeholder="" 
+          style="width: 100%; overflow: hidden; resize: none;max-height: 50px;"></textarea>
+</div>
+</div>
+
+<!--comment-->
+
+<div class="section">
+  <h3 style="margin-top: 0%; margin-bottom: 0%;">Medical and Surgical History:-</h3>
+  <div class="form-row"><label>Prenatal:</label><input type="text"></div>
+  <div class="form-row"><label>Natal:</label><input type="text"></div>
+  <div class="form-row"><label>Postnatal:</label><input type="text"></div>
+</div>
+
+<div class="section">
+    <h3 style="margin-top: -1%; margin-bottom: 0%;" >Development Milestone (achieved at age):-</h3>
+    <div class="parent">
+    <div class="first">
+        <div class="form-row"><label>Head Control:</label> 
+            <select >
+      <option value=""></option>
+      <option value="1">1 Year</option>
+      <option value="2">2 Years</option>
+      <option value="3">3 Years</option>
+      <option value="4">4 Years</option>
+      <option value="5">5 Years</option>
+      <option value="6">6 Years</option>
+      <option value="7">7 Years</option>
+      <option value="8">8 Years</option>
+      <option value="9">9 Years</option>
+      <option value="10">10 Years</option>
+      <option value="11">11 Years</option>
+      <option value="12">12 Years</option>
+      <option value="13">13 Years</option>
+      <option value="14">14 Years</option>
+      <option value="15">15 Years</option>
+    </select>
+<select style="margin-left: 3px;"> 
+    <option value=""></option>
+    <option value="1">1 Month</option>
+      <option value="2">2 Months</option>
+      <option value="3">3 Months</option>
+      <option value="4">4 Months</option>
+      <option value="5">5 Months</option>
+      <option value="6">6 Months</option>
+      <option value="7">7 Months</option>
+      <option value="8">8 Months</option>
+      <option value="9">9 Months</option>
+      <option value="10">10 Months</option>
+      <option value="11">11 Months</option>
+      <option value="12">12 Months</option>
+</select></div>
+    <div class="form-row"><label>Crawling:</label>       <select >
+      <option value=""></option>
+      <option value="1">1 Year</option>
+      <option value="2">2 Years</option>
+      <option value="3">3 Years</option>
+      <option value="4">4 Years</option>
+      <option value="5">5 Years</option>
+      <option value="6">6 Years</option>
+      <option value="7">7 Years</option>
+      <option value="8">8 Years</option>
+      <option value="9">9 Years</option>
+      <option value="10">10 Years</option>
+      <option value="11">11 Years</option>
+      <option value="12">12 Years</option>
+      <option value="13">13 Years</option>
+      <option value="14">14 Years</option>
+      <option value="15">15 Years</option>
+    </select>
+  <select style="margin-left: 3px;"> 
+    <option value=""></option>
+    <option value="1">1 Month</option>
+      <option value="2">2 Months</option>
+      <option value="3">3 Months</option>
+      <option value="4">4 Months</option>
+      <option value="5">5 Months</option>
+      <option value="6">6 Months</option>
+      <option value="7">7 Months</option>
+      <option value="8">8 Months</option>
+      <option value="9">9 Months</option>
+      <option value="10">10 Months</option>
+      <option value="11">11 Months</option>
+      <option value="12">12 Months</option>
+</select></div>
+    <div class="form-row"><label>Walking:</label>       <select >
+      <option value=""></option>
+      <option value="1">1 Year</option>
+      <option value="2">2 Years</option>
+      <option value="3">3 Years</option>
+      <option value="4">4 Years</option>
+      <option value="5">5 Years</option>
+      <option value="6">6 Years</option>
+      <option value="7">7 Years</option>
+      <option value="8">8 Years</option>
+      <option value="9">9 Years</option>
+      <option value="10">10 Years</option>
+      <option value="11">11 Years</option>
+      <option value="12">12 Years</option>
+      <option value="13">13 Years</option>
+      <option value="14">14 Years</option>
+      <option value="15">15 Years</option>
+    </select>
+<select style="margin-left: 3px;"> 
+    <option value=""></option>
+    <option value="1">1 Month</option>
+      <option value="2">2 Months</option>
+      <option value="3">3 Months</option>
+      <option value="4">4 Months</option>
+      <option value="5">5 Months</option>
+      <option value="6">6 Months</option>
+      <option value="7">7 Months</option>
+      <option value="8">8 Months</option>
+      <option value="9">9 Months</option>
+      <option value="10">10 Months</option>
+      <option value="11">11 Months</option>
+      <option value="12">12 Months</option>
+</select></div></div>
+    <div class="second"><div class="form-row"><label>Sitting:</label>       <select >
+      <option value=""></option>
+      <option value="1">1 Year</option>
+      <option value="2">2 Years</option>
+      <option value="3">3 Years</option>
+      <option value="4">4 Years</option>
+      <option value="5">5 Years</option>
+      <option value="6">6 Years</option>
+      <option value="7">7 Years</option>
+      <option value="8">8 Years</option>
+      <option value="9">9 Years</option>
+      <option value="10">10 Years</option>
+      <option value="11">11 Years</option>
+      <option value="12">12 Years</option>
+      <option value="13">13 Years</option>
+      <option value="14">14 Years</option>
+      <option value="15">15 Years</option>
+    </select>
+  <select style="margin-left: 3px;"> 
+    <option value=""></option>
+    <option value="1">1 Month</option>
+      <option value="2">2 Months</option>
+      <option value="3">3 Months</option>
+      <option value="4">4 Months</option>
+      <option value="5">5 Months</option>
+      <option value="6">6 Months</option>
+      <option value="7">7 Months</option>
+      <option value="8">8 Months</option>
+      <option value="9">9 Months</option>
+      <option value="10">10 Months</option>
+      <option value="11">11 Months</option>
+      <option value="12">12 Months</option>
+</select></div>
+    <div class="form-row"><label>Standing:</label>       <select >
+      <option value=""></option>
+      <option value="1">1 Year</option>
+      <option value="2">2 Years</option>
+      <option value="3">3 Years</option>
+      <option value="4">4 Years</option>
+      <option value="5">5 Years</option>
+      <option value="6">6 Years</option>
+      <option value="7">7 Years</option>
+      <option value="8">8 Years</option>
+      <option value="9">9 Years</option>
+      <option value="10">10 Years</option>
+      <option value="11">11 Years</option>
+      <option value="12">12 Years</option>
+      <option value="13">13 Years</option>
+      <option value="14">14 Years</option>
+      <option value="15">15 Years</option>
+    </select>
+  <select style="margin-left: 3px;"> 
+    <option value=""></option>
+    <option value="1">1 Month</option>
+      <option value="2">2 Months</option>
+      <option value="3">3 Months</option>
+      <option value="4">4 Months</option>
+      <option value="5">5 Months</option>
+      <option value="6">6 Months</option>
+      <option value="7">7 Months</option>
+      <option value="8">8 Months</option>
+      <option value="9">9 Months</option>
+      <option value="10">10 Months</option>
+      <option value="11">11 Months</option>
+      <option value="12">12 Months</option>
+</select></div>
+    </div>
+  </div></div>
+
+
+    <h3 style="margin-top: 0%; margin-bottom: 0%;">Higher Functions:-</h3>
+    <div class="parent">
+     <div class="first">
+      <div class="form-row"><label>Attention:</label> <select style="width: 80px;">
+        <option value="">Select</option>
+        <option value="1">Good</option>
+        <option value="2">Fair</option>
+        <option value="3">Poor</option></select>
+      </div>
+      <div class="form-row"><label>Memory:</label> <select style="width: 80px;">
+        <option value="">Select </option>
+        <option value="1">Good</option>
+        <option value="2">Fair</option>
+        <option value="3">Poor</option></select>
+      </div>
+      <div class="form-row"><label>Vision-Hearing:</label> <select style="width: 80px;">
+        <option value="" >Select </option>
+        <option value="1">Normal</option>
+        <option value="2">Abnormal</option>
+        </select>
+    </div>
+    
+   </div>
+    <div class="second">
+      <div class="form-row"><label>Judgement:</label> <select style="width: 80px;">
+        <option value="" >Select </option>
+        <option value="1">Good</option>
+        <option value="2">Fair</option>
+        <option value="3">Poor</option></select>
+      </div>
+    
+      <div class="form-row"><label>Concentration:</label> <select style="width: 80px;">
+        <option value="" >Select </option>
+        <option value="1">Good</option>
+        <option value="2">Fair</option>
+        <option value="3">Poor</option></select>
+      </div>
+    </div>
+  </div>
+    
+  <div class="form-row"><label>Speech:</label> <select style="width: 80px;">
+    <option value="" ></option>
+    <option value="1">Good</option>
+    <option value="2">Fair</option>
+    <option value="3">Poor</option></select>
+<input type="text" style="margin-left: 10px;width: 100%;" ></div>
+
+<div class="section">
+    <div class="form-row"><label>Physical Examination:</label><input type="text"></div>
+  <div class="form-row"><label>Reflex:</label><input type="text"></div>
+  <div class="form-row"><label>Social:</label><input type="text"></div>
+  <div class="form-row"><label>Play:</label><input type="text"></div>
+  <div class="footer" style="margin-top: 3px;">
+    “उम्मीद एक नयी जीवन की” <br>
+   
+  </div>
+
+<div class="last">
+        <div class="1 l"><img src="yt.png" alt="" style="width:30px; vertical-align:middle;padding-bottom: 5px;">@drsantoshkumar</div>
+        <div class="2 l"><img src="insta.png" alt="" style="width:20px; vertical-align:middle;padding-bottom: 5px;"> kumar._santo_sh</div> <div class="3 l"><img src="fb.png" alt="" style="width:30px; vertical-align:middle;padding-bottom: 5px;">DrSantosh Kumar</div>
+      </div>
+
+</div>
+    
+<div class="page-break"></div>
+
+
+<div class="page-section">
+<div class="header-banner"style="margin-top:18px;">
+        <img src="logo.png" alt="Logo" class="logo">
+        
+        <img src="header.jpg" alt="Doctor Image" class="profile-img">
+        <h1>HEALING HAND</h1>
+        <h2>CHILD NEURO DEVELOPMENTAL CENTRE</h2>
+        <p>House No-25, Vivekanand Marg, Near CIMAGE COLLEGE, Boring Road, Patna-01</p>
+        <p>Email: healinghand06@gmail.com | <b>Ph.: 7991125629</b></p>
+      </div>
+      
+      <div class="doctor-row">
+        <div>
+          <p>Dr. Santosh Kumar</p>
+          BPT, MPT(Neuro)<br>
+          S.V. Nirtar<br>
+          C.N.D.T, C.S.I
+        </div>
+        <div>
+            <p>Dr. Yashwant Singh</p>
+          BPT, MPT(Neuro)<br>
+          S.V. Nirtar
+        </div>
+        <div>
+            <p>Dr. Ashish Singh</p>
+          BOT, MOT<br>
+          S.V. Nirtar
+        </div>
+      </div>
+ 
+</div>
+
+<div class="section">
+ 
+    <div class="form-row" style="margin-top: 3%; margin-bottom: 1%;"><label>Comprehension and Language:</label><input type="text"></div>
+    
+    <h3 style="margin-top: 2%; margin-bottom: 0%;">Hand Function:-</h3>
+    <div class="parent">
+        <div class="first">
+    <div class="form-row"><label style="width: 200px;">Reach-Palmar Prehension:</label><select style="width: 80px;">
+        <option value="" >Select </option>
+        <option value="1">Intact</option>
+        <option value="2">Absent</option></select></div>
+    <div class="form-row"><label style="width: 200px;">Spherical Grasp:</label><select style="width: 80px;">
+        <option value="" >Select </option>
+        <option value="1">Intact</option>
+        <option value="2">Absent</option></select></div></div>
+    <div class="second">
+    <div class="form-row"><label style="width: 200px;">Cylindrical Grasp:</label><select style="width: 80px;">
+        <option value="" >Select </option>
+        <option value="1">Intact</option>
+        <option value="2">Absent</option></select></div>
+    <div class="form-row"><label style="width: 200px;">Pinches:</label><select style="width: 80px;">
+        <option value="" >Select </option>
+        <option value="1">Intact</option>
+        <option value="2">Absent</option></select></div></div>
+</div>
+</div>
+
+<div class="section">
+  <h2 style="text-align: center;">ADL Assessment (Fim)</h2>
+  
+    <h3 style="margin-top: 0%; margin-bottom: 1%;">Self Care:-</h3>
+    <div class="parent">
+        <div class="first"><div class="form-row"><label style="width: 200px;">Eating:</label> <select style="width: 80px;">
+          <option value="">Select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select></div>
+        <div class="form-row"><label style="width: 200px;">Grooming:</label> <select style="width: 80px;">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option></select></div>
+        <div class="form-row"><label style="width: 200px;">Bathing:</label> <select style="width: 80px;">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option></select></div>
+          </div>
+        <div class="second"><div class="form-row"><label style="width: 200px;">Dressing (Upper body):</label> <select style="width: 80px;">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option></select></div>
+            <div class="form-row"><label style="width: 200px;">Dressing (Lower body):</label> <select style="width: 80px;">
+                <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option></select>
+           </div>
+        <div class="form-row"><label style="width: 200px;">Toileting:</label> <select style="width: 80px;">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option></select></div></div></div></div>
+            
+            <h3 style="margin-top: 1%; margin-bottom: 1%;">Sphineting Control:-</h3>
+            <div class="parent">
+                <div class="first"><div class="form-row"><label style="width: 200px;">Bladder Management:</label> <select style="width: 80px;">
+                  <option value="">Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select></div>
+            </div>
+            <div class="second"><div class="form-row"><label style="width: 200px;">Bowel Management:</label> <select style="width: 80px;">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option></select></div></div></div>
+
+                <h3 style="margin-top: 1%; margin-bottom: 1%;">Transfer:-</h3>
+                <div class="parent">
+                    <div class="first"><div class="form-row"><label style="width: 200px;">Bed/chair/Wheelchair :</label> <select style="width: 80px;">
+                      <option value="">Select</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                    </select></div><div class="form-row"><label style="width: 200px;">Toilet :</label> <select style="width: 80px;">
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                      </select></div>
+                </div>
+                <div class="second"><div class="form-row"><label style="width: 200px;">Bath/Shower :</label> <select style="width: 80px;">
+                    <option value="">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option></select></div></div></div>
+
+
+                    <h3 style="margin-top: 1%; margin-bottom: 1%;">Locomotion :-</h3>
+            <div class="parent">
+                <div class="first"><div class="form-row"><label style="width: 200px;">Walk/Wheelchair :</label> <select style="width: 80px;">
+                  <option value="">Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select></div>
+            </div>
+            <div class="second"><div class="form-row"><label style="width: 200px;">Stairs :</label> <select style="width: 80px;">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option></select></div></div></div>
+
+                
+                <h3 style="margin-top: 1%; margin-bottom: 1%;">Communication :-</h3>
+            <div class="parent">
+                <div class="first"><div class="form-row"><label style="width: 200px;">Communication :</label> <select style="width: 80px;">
+                  <option value="">Select</option>
+                  <option value="Good">Good</option>
+                  <option value="Fair">Fair</option>
+                  <option value="Poor">Poor</option>
+                
+                </select></div>
+            </div>
+            <div class="second"><div class="form-row"><label style="width: 200px;">Expression :</label> <select style="width: 80px;">
+                <option value="">Select</option>
+                <option value="Good">Good</option>
+                  <option value="Fair">Fair</option>
+                  <option value="Poor">Poor</option></select></div></div></div>
+
+                <h3 style="margin-top: 1%; margin-bottom: 1%;">Social Congnition :-</h3>
+                <div class="parent">
+                    <div class="first"><div class="form-row"><label style="width: 200px;">Social Interaction :</label> <select style="width: 80px;">
+                      <option value="">Select</option>
+                      <option value="Good">Good</option>
+                  <option value="Fair">Fair</option>
+                  <option value="Poor">Poor</option>
+                    </select></div><div class="form-row"><label style="width: 200px;">Problem Solving :</label> <select style="width: 80px;">
+                        <option value="">Select</option>
+                        <option value="Good">Good</option>
+                  <option value="Fair">Fair</option>
+                  <option value="Poor">Poor</option>
+                      </select></div>
+                </div>
+                <div class="second"><div class="form-row"><label style="width: 200px;">Memory :</label> <select style="width: 80px;">
+                    <option value="">Select</option>
+                   <option value="Good">Good</option>
+                  <option value="Fair">Fair</option>
+                  <option value="Poor">Poor</option></select></div></div></div>
+<div class="footer" style="margin-top: 12%;">
+    “उम्मीद एक नयी जीवन की” <br>
+   
+  </div>
+
+<div class="last" style="max-width: 210cm;">
+        <div class="1 l"><img src="yt.png" alt="" style="width:30px; vertical-align:middle;padding-bottom: 5px;">@drsantoshkumar</div>
+        <div class="2 l"><img src="insta.png" alt="" style="width:20px; vertical-align:middle;padding-bottom: 5px;"> kumar._santo_sh</div> <div class="3 l"><img src="fb.png" alt="" style="width:30px; vertical-align:middle;padding-bottom: 5px;">DrSantosh Kumar</div>
+      </div>
+  </div>
+ <div class="page-break"></div>
+ 
+ 
+<div class="page-section">
+<div class="section">
+<div class="header-banner"style="margin-top: 18px;">
+        <img src="logo.png" alt="Logo" class="logo">
+        
+        <img src="header.jpg" alt="Doctor Image" class="profile-img">
+        <h1>HEALING HAND</h1>
+        <h2>CHILD NEURO DEVELOPMENTAL CENTRE</h2>
+        <p>House No-25, Vivekanand Marg, Near CIMAGE COLLEGE, Boring Road, Patna-01</p>
+        <p>Email: healinghand06@gmail.com | <b>Ph.: 7991125629</b></p>
+      </div>
+      
+      <div class="doctor-row">
+        <div>
+          <p>Dr. Santosh Kumar</p>
+          BPT, MPT(Neuro)<br>
+          S.V. Nirtar<br>
+          C.N.D.T, C.S.I
+        </div>
+        <div>
+            <p>Dr. Yashwant Singh</p>
+          BPT, MPT(Neuro)<br>
+          S.V. Nirtar
+        </div>
+        <div>
+            <p>Dr. Ashish Singh</p>
+          BOT, MOT<br>
+          S.V. Nirtar
+        </div>
+      </div>
+
+  <h3 class="form-group-title" style="text-align: center;">Score Summary (Sensory Profile)</h3>
+  <h3>Quadrants:-</h3>
+  <div class="form-row"><label >Seeking / Seeker:</label>
+    <input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Avoiding / Avoider:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Sensitivity / Sensor:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Registration / Bystander:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+</div>
+
+<div class="section">
+  <h3  >Sensory & Behavioral Sections:-</h3>
+  <div class="form-row"><label>General:</label><input type="text" style="max-width: 90px;"><input type="text"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Auditory:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Visual:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Touch:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Movement:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Oral:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+  <div class="form-row"><label>Behavioral:</label><input type="text" style="max-width: 90px;"><input type="textarea"  style="margin-left: 10px;"></div>
+</div>
+   <div class="form-row"><label><h3 style="margin-top: -85px;">Remark:</h3></label><textarea id="autoTextareas" rows="10" placeholder="" 
+          style="width: 100%; overflow: hidden; resize: none;height: auto;"></textarea>
+</div>
+<div class="footer" style="margin-top: 148px;">
+    “उम्मीद एक नयी जीवन की” <br>
+   
+  </div>
+
+<div class="last">
+        <div class="1 l"><img src="yt.png" alt="" style="width:30px; vertical-align:middle;padding-bottom: 5px;">@drsantoshkumar</div>
+        <div class="2 l"><img src="insta.png" alt="" style="width:20px; vertical-align:middle;padding-bottom: 5px;"> kumar._santo_sh</div> <div class="3 l"><img src="fb.png" alt="" style="width:30px; vertical-align:middle;padding-bottom: 5px;">DrSantosh Kumar</div>
+      </div>
+</div>
+
+
+<div class="print-button"style="display:flex;justify-content:space-between;">
+     <button onclick="resetFields()"style="height: 40px;width: 90px;margin-top:15px;background-color:blue;padding-left:20px">Clear</button>
+    <button onclick="window.print()"style="height: 40px;width: px;margin-top:15px ;background-color:blue"><div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+      >
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path
+          fill="currentColor"
+          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+  <span>Print</span> </button>
+   
+  </div> 
+</div>
+</div>
+
+
+   <!-- login  js-->
+   
+  <script>
+  const textarea = document.getElementById("autoTextarea autotextareas");
+  document.querySelectorAll("textarea").forEach(textarea => {
+    // Initial resize on load (if content is pre-filled)
+    textarea.style.height = "auto";
+    // textarea.style.height = textarea.scrollHeight + "px";
+
+  textarea.addEventListener("input", function () {
+    this.style.height = "auto"; // Reset height
+    this.style.height = this.scrollHeight + "px"; // Set to content height
+  });
+});
+  function resetFields() {
+    document.querySelectorAll("input, textarea, select").forEach(el => {
+      if (el.type === "checkbox" || el.type === "radio") {
+        el.checked = false;
+      } else {
+        el.value = "";
+        // Trigger auto-resize again
+        if (el.tagName.toLowerCase() === "textarea") {
+          el.style.height = "auto";
+        }
+      }
+    });
+  }
+  
+</script>
+
+
+</body>
+</html>
